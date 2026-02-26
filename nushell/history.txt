@@ -1,0 +1,859 @@
+zellij
+hx
+ls helix
+ls zed
+rg a
+cargo binstall starship
+sudo apt install atuin
+cargo binstall zoxide
+eza
+ls 
+bat
+cargo-binstall bat
+cargo binstall fd
+cargo binstall fd-find
+fd helix
+cargo binstall ripgrep
+fd config.nu
+starship init nu | save ~/.config/nushell/config.nu<\n>
+starship init nu | save ~/.config/nushell/config.nu
+atuin init nu | save ~/.config/nushell/config.nu<\n>
+starship init nu
+sta
+starship init nu
+# this file is both a valid<\n># - overlay which can be loaded with `overlay use starship.nu`<\n># - module which can be used with `use starship.nu`<\n># - script which can be used with `source starship.nu`<\n>export-env { $env.STARSHIP_SHELL = "nu"; load-env {<\n>    STARSHIP_SESSION_KEY: (random chars -l 16)<\n>    PROMPT_MULTILINE_INDICATOR: (<\n>        ^/home/roe/.cargo/bin/starship prompt --continuation<\n>    )<\n><\n>    # Does not play well with default character module.<\n>    # TODO: Also Use starship vi mode indicators?<\n>    PROMPT_INDICATOR: ""<\n><\n>    PROMPT_COMMAND: {||<\n>        (<\n>            # The initial value of `$env.CMD_DURATION_MS` is always `0823`, which is an official setting.<\n>            # See https://github.com/nushell/nushell/discussions/6402#discussioncomment-3466687.<\n>            let cmd_duration = if $env.CMD_DURATION_MS == "0823" { 0 } else { $env.CMD_DURATION_MS };<\n>            ^/home/roe/.cargo/bin/starship prompt<\n>                --cmd-duration $cmd_duration<\n>                $"--status=($env.LAST_EXIT_CODE)"<\n>                --terminal-width (term size).columns<\n>                ...(<\n>                    if (which "job list" | where type == built-in | is-not-empty) {<\n>                        ["--jobs", (job list | length)]<\n>                    } else {<\n>                        []<\n>                    }<\n>                )<\n>        )<\n>    }<\n><\n>    config: ($env.config? | default {} | merge {<\n>        render_right_prompt_on_last_line: true<\n>    })<\n><\n>    PROMPT_COMMAND_RIGHT: {||<\n>        (<\n>            # The initial value of `$env.CMD_DURATION_MS` is always `0823`, which is an official setting.<\n>            # See https://github.com/nushell/nushell/discussions/6402#discussioncomment-3466687.<\n>            let cmd_duration = if $env.CMD_DURATION_MS == "0823" { 0 } else { $env.CMD_DURATION_MS };<\n>            ^/home/roe/.cargo/bin/starship prompt<\n>                --right<\n>                --cmd-duration $cmd_duration<\n>                $"--status=($env.LAST_EXIT_CODE)"<\n>                --terminal-width (term size).columns<\n>                ...(<\n>                    if (which "job list" | where type == built-in | is-not-empty) {<\n>                        ["--jobs", (job list | length)]<\n>                    } else {<\n>                        []<\n>                    }<\n>                )<\n>        )<\n>    }<\n>}}
+atuin init nu
+cargo binstall carapace<\n>
+# e.g. with pamac<\n>pamac install carapace-bin<\n>
+apt-get update && apt-get install carapace-bin<\n>
+apt-get update and  apt-get install carapace-bin<\n>
+apt-get update
+sudo apt-get upfate
+sudo apt-get update
+sudo apt-get install carapace-bin
+sudo  aptt install carapace-bin
+sudo apt install carapace-bin
+# /etc/apt/sources.list.d/fury.list<\n>deb [trusted=yes] https://apt.fury.io/rsteube/ /<\n>
+sudo apt update<\n>sudo apt install carapace-bin<\n>
+sudo mv carapace /usr/.local/bin/<\n>sudo chmod +x /usr/local/bin/carapace<\n>
+sudo mv /home/roe/.local/bin/carapace /usr/local/bin/<\n>sudo chmod +x /usr/local/bin/carapace<\n>
+mkdir -p ~/.cache/carapace<\n>carapace _carapace nushell | save --force ~/.cache/carapace/carapace.nu<\n>
+mkdir ~/.cache/carapace<\n>
+carapace _carapace nushell > ~/.cache/carapace/carapace.nu<\n>
+carapace 
+which carapace<\n>
+ls -l ~/.local/bin/carapace<\n>ls -l /usr/local/bin/carapace<\n>
+cd /tmp<\n>wget https://github.com/rsteube/carapace-bin/releases/latest/download/carapace-x86_64-unknown-linux-gnu.zip<\n>unzip carapace-x86_64-unknown-linux-gnu.zip<\n>chmod +x carapace<\n>mv carapace ~/.local/bin/<\n>
+# 1. ダウンロード（URLはGitHubからコピーして使う）<\n>wget https://github.com/carapace-sh/carapace-bin/releases/download/v1.5.7/carapace-bin_1.5.7_linux_amd64.tar.gz<\n><\n># 2. 展開<\n>tar -xzf carapace-bin_1.5.7_linux_amd64.tar.gz<\n><\n># 3. バイナリを ~/.local/bin に移動<\n>mkdir -p ~/.local/bin<\n>mv carapace ~/.local/bin/<\n><\n># 4. 実行権限<\n>chmod +x ~/.local/bin/carapace<\n>
+chmod +x ~/.local/bin/carapace
+carapace 
+for i in $(snap connections | grep gtk-common-themes:gtk-3-themes | awk '{print $2}'); do sudo snap connect $i dg-adw-gtk3-theme:gtk-3-themes; done
+snap connections | where $it.0 == "gtk-common-themes:gtk-3-themes" | get 1 | each {|app| sudo snap connect $app "orchis-themes:gtk-3-themes" }<\n>
+curl -fsSL https://ppa.floorp.app/KEY.gpg | sudo gpg --dearmor -o /usr/share/keyrings/Floorp.gpg<\n>sudo curl -sS --compressed -o /etc/apt/sources.list.d/Floorp.list 'https://ppa.floorp.app/Floorp.list'<\n>sudo apt update<\n>sudo apt install floorp
+sudo apt install flatpak
+sudo apt install gnome-software-plugin-flatpak
+flatpak remote-add --if-not-exists flathub https://dl.flathub.org/repo/flathub.flatpakrepo
+flatpak install io.github.zen_browser.zen
+flatpak run app.zen_browser.zen
+zell
+zed 
+hx
+zed 
+curl -fsSL https://opencode.ai/install | bash
+opencode 
+opencode auth login
+zellij --session
+zellih
+opencode auth login
+opencode
+opencode auth login<\n>
+curl -fsSL https://opencode.ai/install | bash
+opencode
+find /usr/local/bin /opt -name opencode 2>/dev/null
+nu --config
+nu exec
+opencode
+nd<\n>   ╰────
+/usr/local/bin/opencode --help
+curl -fsSL https://opencode.ai/install | bash
+opencode
+opencode auth login<\n>
+cd /home/roe/.config/nushell
+carapace 
+cd .config/helix/
+hx --health
+sudo apt install wgsl-analyzer
+sudo apt install zig
+cargo binstall shader_language_server<\n>
+hx --health
+hx
+hx --health
+cargo binstall slint-lsp<\n>
+sudo apt install neofetch
+hx /home/roe/.config/nushell/
+neofet
+neofetch
+zig
+zellij
++
+hx /home/roe/.config/nushell/
+hx ($fzf)
+xmodmap -e "keysym Caps_Lock = Zenkaku_Hankaku"<\n>
+echo "remove lock = Caps_Lock" > ~/.Xmodmap<\n>echo "keysym Caps_Lock = Zenkaku_Hankaku" >> ~/.Xmodmap<\n>
+xmodmap ~/.Xmodmap<\n>
+hx ~/.Xmodmap<\n>
+setxkbmap -option "caps:kana"<\n>
+hx ~/.Xmodmap<\n>
+echo "remove lock = Caps_Lock" > ~/.Xmodmap<\n>echo "keysym Caps_Lock = Zenkaku_Hankaku" >> ~/.Xmodmap<\n>
+xmodmap ~/.Xmodmap<\n>
+htop
+btop
+nix
+neofetch
+curl --proto '=https' --tlsv1.2 -sSf -L https://install.determinate.systems/nix | sh -s -- install
+# ディレクトリの有無を確認<\n>ls -d /nix<\n># もし存在して中身が空っぽに近いなら、一度消しておくのが安全です<\n># (※既にNixを使っていた場合は実行しないでください)<\n>sudo rm -rf /nix
+ls -d /nix
+curl --proto '=https' --tlsv1.2 -sSf -L https://install.determinate.systems/nix | sh -s -- install
+nix run github:luccahuguet/yazelix
+nix
+where nix
+nix
+nix --version
+curl --proto '=https' --tlsv1.2 -sSf -L https://install.determinate.systems/nix | sh -s -- install
+sh <(curl -L https://nixos.org/nix/install) --daemon
+bash -c 'sh <(curl -L https://nixos.org/nix/install) --daemon'
+nix --version
+nix
+where 
+where ?
+where --help
+where $nix
+nix
+ls /nix/var/nix/profiles/default/etc/profile.d/nix.sh
+hx /home/roe/.config/nushell/
+hx /home/roe/.config/Alacritty
+hx /home/roe/.config/
+config env
+hx config env
+cargo
+hx --setting
+hx --help
+hx -c
+echo $nu.env-path
+hx /home/roe/.config/nushell
+# 527de363-01f3-4908-9994-04a850b330d1<\n>with-env { ATUIN_LOG: error, ATUIN_QUERY: (commandline) } { commandline edit (run-external atuin search "--shell-up-key-binding" "--interactive"  e>| str trim) }
+nix
+hx \/
+$hx
+where $hx
+where hx
+which nix
+which hx
+hx --health
+hx /home/roe/.config/helix/config.toml
+hx
+hx /home/roe/.config/helix
+nix
+hx $env
+echo $nu.env-path
+hx $nu.env-path
+cd .config/helix/
+hx /home/roe/.config/helix
+cargo
+hx $nu.env-path
+echo $nu.env-path
+atuin init nu
+cd $nu.config-path
+cd /home/roe/.config/nushell/
+hx /home/roe/.config/helix
+sudo apt install carapace
+carapace 
+apt-get update && apt-get install carapace-bin<\n>
+apt-get update and  apt-get install carapace-bin
+apt-get update;  and  apt-get install carapace-bin
+sudo apt-get update;  and  sudo apt-get install carapace-bin
+sudo apt-get install carapace-bin
+carapace 
+carapace
+neofetch
+sudo apt-get install neofetch
+cd /home/roe/.config/nushell/
+hx /home/roe/.config/nushell
+echo $PATH
+echo $env.PATH
+hx /home/roe/.config/nushell
+hx /home/roe/.config/helix
+hx /home/roe/.config/nushell
+carapace
+sudo apt-get install yazi
+cargo-binstall yazi
+fzf
+sudo apt-get install fzf
+zoxide
+zoxide alacritty
+zoxide | fzf
+zoxide _ZO_FZF_OPTS
+cd /home/roe/.config/alacritty
+cd /home/roe/.config/Alacritty
+fd 
+fd alacritty
+fd Alacrityy
+fd Alcritty
+alacritty
+alacritty --help
+alacritty --config-file
+cd /.config/alacritty/alacritty.toml
+mkdir /.config/alacritty/alacritty.toml
+mkdir /.config/alacritty/
+mkdir -p ~/.config/alacritty/
+mkdir --help
+mkdir .config/alacritty
+touch .config/alacritty/alacritty.toml
+hx /home/roe/.config/alacritty
+ll
+cargo binstall harper-ls
+hx --health harper
+hx /home/roe/.config/helix
+hx --tutor
+hx --tutor
+haper
+harper
+sudo apt-get install marksman
+hx /home/roe/about_helix.md
+hx $nu
+hx $nu.env-path
+hx /home/roe/.config/nushell
+cd /.config/alacritty/alacritty.toml
+cd /.config/alacritty
+cd .config/alacritty
+cd .config/helix/
+hx /home/roe/.config/Alacritty
+cd .config/alacritty
+cd ~
+cd .config/alacritty/
+sudo apt-get install nerdfont
+hx /home/roe/.config/helix
+]
+mkdir -p ~/.local/share/fonts<\n>
+mkdir  ~/.local/share/fonts<\n>
+fc-cache -fv<\n>
+hx /home/roe/.config/helix
+hx /home/roe/about_helix.md
+hx /home/roe/.config/Alacritty
+hx /home/roe/.config/alacritty
+cd .config/alacritty/
+hx /home/roe/.config/alacritty
+stop
+hx /home/roe/.config/alacritty
+hx /tmp/Alacritty-3384.log
+hx /home/roe/.config/alacritty
+clear
+hx /home/roe/about_helix.md
+hx /home/roe/.config/helix
+clear
+git clone https://github.com/rocm/rocm_smi_lib.git --depth 1 -b rocm-5.6.x lib/rocm_smi_lib
+clear
+btop
+hx /home/roe/.config/helix
+clear
+hx /home/roe/.config/helix
+hx /home/roe/.config/Alacritty
+hx /home/roe/.config/alacritty
+hx /home/roe/.config/nushell
+hx /home/roe/.config/alacritty
+cd .config/alacritty/
+hx /home/roe/.config/alacritty
+a
+b
+hx /home/roe/.config/alacritty
+clear
+hx /home/roe/.config/alacritty
+clear
+hx /home/roe/.config/alacritty
+clear
+hx /home/roe/.config/alacritty
+hx /home/roe/.config/nushell
+ala
+hx /home/roe/.config/nushell
+cd /home/roe/.config/nushell/
+hx 
+cd ~
+hx /home/roe/.config/alacritty
+hx /home/roe/.config/helix
+clear
+hx /home/roe/.config/helix
+hx --health toml
+sudo apt-get install taplo
+sudo apt-get install tombi
+# バイナリをダウンロードして解凍し、/usr/local/bin にインストール<\n>curl -fsSL https://github.com/tamasfe/taplo/releases/latest/download/taplo-linux-x86_64.gz \<\n>  | gzip -d - | sudo install -m 755 /dev/stdin /usr/local/bin/taplo<\n><\n># インストールの確認<\n>taplo --version<\n>
+# 最新の 64bit Linux 用バイナリをダウンロードして /usr/local/bin にインストール<\n>curl -fsSL https://github.com \<\n>  | gzip -d - | sudo install -m 755 /dev/stdin /usr/local/bin/tombi<\n><\n># インストールの確認<\n>tombi --version<\n>
+hx /home/roe/.config/helix
+hx /home/roe/.config/alacritty
+kill libghostty
+hx /home/roe/.config/alacritty
+settig
+sudo apt-get install neovim
+nvim
+lazygit
+sudo apt-get install lazygit
+lazygit
+mv ~/.config/nvim ~/.config/nvim.bak
+hx ~/.config/kitty
+hx /home/roe/.config/Alacritty
+hx /home/roe/.config/alacritty
+nvim
+nvim /home/roe/.config/nvim
+hx /home/roe/.config/alacritty
+hx /home/roe/.config/helix
+neovide
+# Flatpakが未導入なら<\n>sudo apt update && sudo apt install flatpak<\n>flatpak remote-add --if-not-exists flathub https://flathub.org<\n><\n># Neovideのインストール<\n>flatpak install flathub dev.neovide.neovide<\n>
+flatpak install flathub dev.neovide.neovide<\n>
+git clone --depth 1 https://github.com/AstroNvim/template ~/.config/nvim<\n>rm -rf ~/.config/nvim/.git<\n>nvim
+# nvimが入っているか確認<\n>which nvim<\n>
+mkdir ~/.var/app/dev.neovide.neovide/config/neovide<\n>
+flatpak override --user --talk-name=org.freedesktop.Flatpak dev.neovide.neovide<\n>flatpak override --user --filesystem=host dev.neovide.neovide<\n>
+flatpak run dev.neovide.neovide --no-tabs<\n>
+flatpak run dev.neovide.neovide --neovim-bin (which nvim | get path.0)<\n>
+# Nushellでのフルパス指定起動<\n>let nvim_path = (which nvim | get path.0)<\n>flatpak run dev.neovide.neovide --neovim-bin $nvim_path<\n>
+chmod +x neovide.AppImage<\n>
+http get https://github.com | save -f neovide.AppImage<\n>
+chmod +x neovide.AppImage<\n>
+./neovide.AppImage<\n>
+# 最新リリースのバイナリを直接ダウンロードします<\n>http get https://github.com | save -f neovide.AppImage<\n>
+chmod +x neovide.AppImage<\n>./neovide.AppImage<\n>
+o
+sudo apt update<\n>sudo apt install libfuse2<\n>
+# ダウンロードフォルダへ移動（場所が違う場合は適宜変えてください）<\n>cd ~/Downloads<\n><\n># 実行権限を付与<\n>chmod +x neovide.AppImage<\n>
+cd ダウンロード/
+chmod +x neovide.AppImage  
+./neovide.AppImage<\n>
+cd ~
+cd .config/helix/
+hx /home/roe/about_helix.md
+hx /home/roe/.config/nushell
+hx /home/roe/.config/helix
+hx /home/roe/.config/nushell
+cargo install --force hx-lsp
+cargo binstall --force hx-lsp
+hx /home/roe/.config/nushell
+hx /home/roe/.config/helix
+hx /home/roe/.config/helix
+hx /home/roe/.config/nushell
+hx /home/roe/.config/helix
+hx /home/roe/.config/nushell
+sudo dpkg -i appimagelauncher_*.deb<\n>sudo apt-get install -f  # 依存関係エラーが出た場合の修正<\n>
+hx /home/roe/.config/nushell
+hx /home/roe/.config/nushell
+neovide
+hx /home/roe/.config/nushell
+hx /home/roe/.config/helix
+hx /home/roe/.config/n
+hx /home/roe/.config/nushell
+hx /home/roe/.config/helix
+open 
+yazi
+zellij-s alac
+zellij -s alac
+hx /home/roe/.config/helix
+hx /media/roe/2EEC058B17426259/config.toml 
+hx /home/roe/.config/nushell
+hx --grammar fetch
+hx --grammar build
+hx --health nu
+sudo apt install build-essential
+htop
+hx --grammar build
+hx --health nu
+hx --health
+cd /home/roe/.config/helix/runtime/queries/nu<\n><\n># テキストオブジェクト用<\n>curl -LO https://raw.githubusercontent.com/helix-editor/helix/master/runtime/queries/nu/textobjects.scm<\n><\n># インデント用<\n>curl -LO https://raw.githubusercontent.com/helix-editor/helix/master/runtime/queries/nu/indents.scm<\n><\n># (推奨) ハイライトとインジェクションも最新に合わせる<\n>curl -LO https://raw.githubusercontent.com/helix-editor/helix/master/runtime/queries/nu/highlights.scm<\n>curl -LO https://raw.githubusercontent.com/helix-editor/helix/master/runtime/queries/nu/injections.scm
+cd /home/roe/.config/helix/runtime/grammars/sources/nu/
+# テキストオブジェクト用<\n>curl -LO https://raw.githubusercontent.com/helix-editor/helix/master/runtime/queries/nu/textobjects.scm<\n><\n># インデント用<\n>curl -LO https://raw.githubusercontent.com/helix-editor/helix/master/runtime/queries/nu/indents.scm<\n><\n># (推奨) ハイライトとインジェクションも最新に合わせる<\n>curl -LO https://raw.githubusercontent.com/helix-editor/helix/master/runtime/queries/nu/highlights.scm<\n>curl -LO https://raw.githubusercontent.com/helix-editor/helix/master/runtime/queries/nu/injections.scm
+hx --health nu
+hx --health toml
+hx
+ffmpeg
+sudo apt install ffmpeg
+sudo apt install 7-zip
+jq
+sudo apt install popper
+sudo apt install resvg
+sudo apt install ImageMagick
+sudo apt update<\n>sudo apt install 7zip<\n>
+# パッケージリストの更新<\n>sudo apt update<\n><\n># Poppler ユーティリティ（pdftoppm 等）のインストール<\n>sudo apt install poppler-utils<\n><\n># ImageMagick のインストール<\n>sudo apt install imagemagick<\n>
+yazi
+cargo binstall yazi
+sudo apt update;  sudo apt upgrade -y<\n>
+sudo snap install yazi --classic
+hx /home/roe/.config/nushell
+hx /home/roe/.config/helix
+clear
+hx /home/roe/.config/helix
+clear 
+hx /home/roe/.config/helix
+^clear 
+hx /home/roe/.config/helix
+^clear 
+hx /home/roe/.config/helix
+cd ~
+yazi -v
+yazi --v
+yazi --version
+hx /home/roe/.config/helix
+:q
+# tree-sitter-nuのクエリをHelixに最新化するスクリプト<\n><\n>let repo_url = "https://github.com/nushell/tree-sitter-nu"<\n>let tmp_dir = "/tmp/tree-sitter-nu"<\n>let queries_dir = ($env.HOME | path join ".config/helix/runtime/queries/nu")<\n><\n># クローン or 更新<\n>if ($tmp_dir | path exists) {<\n>    print "既存のリポジトリを更新中..."<\n>    git -C $tmp_dir pull<\n>} else {<\n>    print "リポジトリをクローン中..."<\n>    git clone $repo_url $tmp_dir<\n>}<\n><\n># クエリディレクトリを作成<\n>mkdir $queries_dir<\n><\n># .scmファイルをコピー<\n>let files = (ls ($tmp_dir | path join "queries/*.scm") | get name)<\n>for f in $files {<\n>    let dest = ($queries_dir | path join ($f | path basename))<\n>    cp $f $dest<\n>    print $"コピー: ($f | path basename)"<\n>}<\n><\n># グラマーをビルド<\n>print "グラマーをフェッチ＆ビルド中..."<\n>hx --grammar fetch<\n>hx --grammar build<\n><\n>print "完了！ `hx --health nu` で確認してください。"
+:1
+# tree-sitter-nuのクエリをHelixに最新化するスクリプト<\n><\n>let repo_url = "https://github.com/nushell/tree-sitter-nu"<\n>let tmp_dir = "/tmp/tree-sitter-nu"<\n>let queries_dir = ($env.HOME | path join ".config/helix/runtime/queries/nu")<\n><\n># クローン or 更新<\n>if ($tmp_dir | path exists) {<\n>    print "既存のリポジトリを更新中..."<\n>    git -C $tmp_dir pull<\n>} else {<\n>    print "リポジトリをクローン中..."<\n>    git clone $repo_url $tmp_dir<\n>}<\n><\n># クエリディレクトリを作成<\n>mkdir $queries_dir<\n><\n># .scmファイルをコピー<\n>let files = (ls ($tmp_dir | path join "queries/*.scm") | get name)<\n>for f in $files {<\n>    let dest = ($queries_dir | path join ($f | path basename))<\n>    cp $f $dest<\n>    print $"コピー: ($f | path basename)"<\n>}<\n><\n># グラマーをビルド<\n>print "グラマーをフェッチ＆ビルド中..."<\n>hx --grammar fetch<\n>hx --grammar build<\n><\n>print "完了！ `hx --health nu` で確認してください。"
+# クエリディレクトリを作成（存在チェック）<\n>if not ($queries_dir | path exists) {<\n>    mkdir $queries_dir<\n>}<\n><\n># .scmファイルをコピー<\n>let files = (<\n>    ls ($tmp_dir | path join "queries")<\n>    | where name ends-with ".scm"<\n>    | get name<\n>)<\n><\n>for f in $files {<\n>    let dest = ($queries_dir | path join ($f | path basename))<\n>    cp $f $dest<\n>    print $"コピー: ($f | path basename)"<\n>}<\n>
+# tree-sitter-nu のクエリを Helix 用に更新するスクリプト<\n><\n>let repo_url = "https://github.com/nushell/tree-sitter-nu"<\n>let tmp_dir = "/tmp/tree-sitter-nu"<\n>let queries_dir = ($env.HOME | path join ".config/helix/runtime/queries/nu")<\n><\n># クローン or 更新<\n>if ($tmp_dir | path exists) {<\n>    print "既存のリポジトリを更新中..."<\n>    git -C $tmp_dir pull<\n>} else {<\n>    print "リポジトリをクローン中..."<\n>    git clone $repo_url $tmp_dir<\n>}<\n><\n># クエリディレクトリを作成（存在チェック）<\n>if not ($queries_dir | path exists) {<\n>    mkdir $queries_dir<\n>}<\n><\n># .scm ファイルを取得<\n>let files = (<\n>    ls ($tmp_dir | path join "queries")<\n>    | where name ends-with ".scm"<\n>    | get name<\n>)<\n><\n># コピー<\n>for f in $files {<\n>    let dest = ($queries_dir | path join ($f | path basename))<\n>    cp $f $dest<\n>    print $"コピー: ($f | path basename)"<\n>}<\n><\n>print "完了（Helix を再起動すると反映されます）"<\n>
+hx --health nu
+rm ~/.config/helix/runtime/queries/nu/indents.scm<\n>rm ~/.config/helix/runtime/queries/nu/textobjects.scm<\n>
+# nushell スクリプト: Helix 用クエリを更新<\n><\n>let repo_url = "https://github.com/nushell/tree-sitter-nu"<\n>let tmp_dir = "/tmp/tree-sitter-nu"<\n>let helix_queries = ($env.HOME | path join ".config/helix/runtime/queries/nu")<\n><\n># （1） リポジトリをクローン or 更新<\n>if ($tmp_dir | path exists) {<\n>    print "既存リポジトリを更新中..."<\n>    git -C $tmp_dir pull<\n>} else {<\n>    print "リポジトリをクローン中..."<\n>    git clone $repo_url $tmp_dir<\n>}<\n><\n># （2） Helix のクエリディレクトリを準備<\n>if not ($helix_queries | path exists) {<\n>    mkdir $helix_queries<\n>}<\n><\n># （3） 既存の query ファイルを一旦リセット<\n># ※ highlight は上書きしたいので消さないで残す<\n>let existing = (<\n>    ls $helix_queries<\n>    | get name<\n>)<\n><\n>for e in $existing {<\n>    # highlight.scm はそのまま更新（消さない）<\n>    if ($e != "highlights.scm") {<\n>        rm ($helix_queries | path join $e)<\n>        print $"削除: $e"<\n>    }<\n>}<\n><\n># （4） nushell のクエリを Helix 用にコピー<\n>let to_copy = (<\n>    ls ($tmp_dir | path join "queries")<\n>    | where name ends-with ".scm"<\n>    | get name<\n>)<\n><\n>for f in $to_copy {<\n>    let source = ($tmp_dir | path join "queries" | path join $f)<\n>    let dest = ($helix_queries | path join $f)<\n><\n>    # highlight.scm は上書き<\n>    cp $source $dest<\n>    print $"コピー: $f"<\n>}<\n><\n>print "コピー完了 → 必要なら textobjects.scm / indents.scm を Helix 向けに調整してください"<\n>
+hx --health nu
+# tree-sitter-nu を正として Helix に反映するスクリプト<\n><\n>let repo_url = "https://github.com/nushell/tree-sitter-nu"<\n>let tmp_dir = "/tmp/tree-sitter-nu"<\n>let helix_queries = ($env.HOME | path join ".config/helix/runtime/queries/nu")<\n><\n># clone or update<\n>if ($tmp_dir | path exists) {<\n>    print "tree-sitter-nu を更新中..."<\n>    git -C $tmp_dir pull<\n>} else {<\n>    print "tree-sitter-nu をクローン中..."<\n>    git clone $repo_url $tmp_dir<\n>}<\n><\n># Helix 側 queries ディレクトリ<\n>if not ($helix_queries | path exists) {<\n>    mkdir $helix_queries<\n>}<\n><\n># 既存の scm を全削除（壊れたクエリを残さない）<\n>for f in (ls $helix_queries | where name ends-with ".scm" | get name) {<\n>    rm ($helix_queries | path join $f)<\n>}<\n><\n># === 重要 ===<\n># Helixで安全に使えるのは highlights.scm のみ<\n>let source_highlight = ($tmp_dir | path join "queries/highlights.scm")<\n><\n>if not ($source_highlight | path exists) {<\n>    error make { msg: "tree-sitter-nu に highlights.scm が見つかりません" }<\n>}<\n><\n>cp $source_highlight ($helix_queries | path join "highlights.scm")<\n>print "コピー: highlights.scm"<\n><\n>print "完了"<\n>print "注意: textobjects / indents は nu upstream からは導入していません"<\n>print "Helix を再起動してください"<\n>
+# nushell/tree-sitter-nu から Helix 用にクエリを更新<\n><\n>let repo = "https://github.com/nushell/tree-sitter-nu"<\n>let tmp = "/tmp/tree-sitter-nu"<\n>let helixDir = ($env.HOME | path join ".config/helix/runtime/queries/nu")<\n><\n># 1. Clone or update<\n>if ($tmp | path exists) {<\n>    git -C $tmp pull<\n>} else {<\n>    git clone $repo $tmp<\n>}<\n><\n># 2. Ensure helixDir exists<\n>if not ($helixDir | path exists) { mkdir $helixDir }<\n><\n># 3. Clear old<\n>for f in (ls $helixDir | where name ends-with ".scm" | get name) {<\n>    rm ($helixDir | path join $f)<\n>}<\n><\n># 4. Scan upstream queries<\n>for q in (ls ($tmp | path join "queries/nu") | where name ends-with ".scm") {<\n>    let path = ($tmp | path join "queries/nu" | path join $q.name)<\n>    let content = open $path<\n><\n>    # always keep highlights and injections<\n>    if ($q.name == "highlights.scm" or $q.name == "injections.scm") {<\n>        cp $path ($helixDir | path join $q.name)<\n>        print $"keep: $q.name"<\n>        continue<\n>    }<\n><\n>    # textobjects: keep if recognized patterns<\n>    if ($q.name == "textobjects.scm") {<\n>        # simple filter for Helix textobject capture names<\n>        if ($content =~ "function.inside" or $content =~ "parameter.inside") {<\n>            cp $path ($helixDir | path join "textobjects.scm")<\n>            print "textobjects kept"<\n>        } else {<\n>            print "textobjects skipped"<\n>        }<\n>        continue<\n>    }<\n><\n>    # indents: keep if @indent or @outdent exists<\n>    if ($q.name == "indents.scm" and ($content =~ "@indent" or $content =~ "@outdent")) {<\n>        cp $path ($helixDir | path join "indents.scm")<\n>        print "indents kept"<\n>        continue<\n>    }<\n><\n>    print $"skip: $q.name"<\n>}<\n><\n>print "done, restart Helix"<\n>
+hx --health nu
+hx /home/roe/.config/helix
+hx /home/roe/.config/nushell
+rm -rf ~/.config/helix/runtime/queries/nu<\n>
+hx --health
+hx --health rust
+hx --health slint
+hx --health wgsl
+hx -v
+hx --version
+sudo rm -rf /snap/helix/120/bin/runtime/queries/nu<\n>
+sudo mv /snap/helix/120/bin/runtime/queries/nu \<\n>        /snap/helix/120/bin/runtime/queries/nu.bak<\n>
+let repo = "/tmp/tree-sitter-nu"<\n>let dest = ($env.HOME | path join ".config/helix/runtime/queries/nu")<\n><\n>git clone https://github.com/nushell/tree-sitter-nu $repo<\n><\n>mkdir $dest<\n><\n>ls ($repo | path join "queries/nu/*.scm")<\n>| each {|f|<\n>    cp $f.name ($dest | path join ($f.name | path basename))<\n>}<\n>
+hx --health nu
+snap uninstall helix
+snap help
+hx remove helix
+snap remove helix
+sudo apt install helix
+sudo add-apt-repository ppa:maveonair/helix<\n>sudo apt update<\n>sudo apt install helix<\n>
+hx
+nix profile install nixpkgs#helix<\n>
+nix profile add  nixpkgs#helix<\n>
+nix profile install nixpkgs#helix --extra-experimental-features "nix-command flakes"<\n>
+hx
+hx --health nu
+nix profile install nixpkgs#carapace<\n>
+nix profile add nixpkgs#carapace --extra-experimental-features "nix-command flakes"<\n>
+carapace
+fish
+carapace init nu
+carapace
+carapace nushell
+# env.nu を開く (Helixがインストール済みなら hx で)<\n>hx (config env --path)<\n>
+hx /home/roe/.config/nushell
+echo ($nu.cache-dir)/carapace.nu
+cd ($nu.cache-dir)/carapace.nu
+hx /home/roe/.config/nushell
+exit nu
+sudo apt install fish
+nu
+hx -g fetch<\n>hx -g build
+hx --health nu
+hx --grammar nu
+hx --grammar fetch nu
+hx .config/helix/
+hx -g fetch<\n>hx -g build
+hx --health  nu
+hx -g fetch<\n>hx -g build
+hx --log e
+hx --health nu
+^mkdir -p ~/.config/helix/runtime/queries/nu<\n>
+# 一時的にリポジトリをクローンしてクエリをコピー<\n>git clone https://github.com /tmp/tree-sitter-nu<\n>cp /tmp/tree-sitter-nu/queries/* ~/.config/helix/runtime/queries/nu/<\n>
+# 既存の古い一時ディレクトリを削除<\n>rm -rf /tmp/tree-sitter-nu<\n><\n># 正しいURLでクローン（URLが修正されています）<\n>git clone https://github.com /tmp/tree-sitter-nu<\n><\n># クエリファイルをコピー<\n>cp /tmp/tree-sitter-nu/queries/* ~/.config/helix/runtime/queries/nu/<\n><\n># 確認<\n>ls ~/.config/helix/runtime/queries/nu/<\n>
+# 2. 正しいURLでクローン<\n>git clone https://github.com /tmp/tree-sitter-nu<\n><\n># 3. クエリファイルをユーザー設定ディレクトリにコピー<\n>cp -r /tmp/tree-sitter-nu/queries/* ~/.config/helix/runtime/queries/nu/<\n><\n># 4. コピーされたか確認<\n>ls ~/.config/helix/runtime/queries/nu/
+hx -g fetch<\n>hx -g build
+hx --health nu<\n>
+# 階層を正しくしてコピーし直す<\n>cp -rv /tmp/tree-sitter-nu/queries/nu/*.scm ~/.config/helix/runtime/queries/nu/<\n><\n># ファイルが直接このディレクトリにあるか確認<\n>ls ~/.config/helix/runtime/queries/nu/<\n>
+# 1. 念のためリポジトリを最新状態でクローンし直し<\n>rm -rf /tmp/tree-sitter-nu<\n>git clone https://github.com /tmp/tree-sitter-nu<\n><\n># 2. 既存の(間違った階層の)ディレクトリを一旦削除して作り直し<\n>rm -rf ~/.config/helix/runtime/queries/nu<\n>mkdir -p ~/.config/helix/runtime/queries/nu<\n><\n># 3. リポジトリ内の queries/nu/ の「中身」だけをコピー<\n># (*.scm ではなくディレクトリ指定で確実に)<\n>cp -rv /tmp/tree-sitter-nu/queries/nu/ ~/.config/helix/runtime/queries/<\n><\n># 4. 確認<\n>ls ~/.config/helix/runtime/queries/nu/<\n>
+# 1. 既存のゴミを掃除<\n>rm -rf /tmp/tree-sitter-nu<\n>rm -rf ~/.config/helix/runtime/queries/nu<\n><\n># 2. リポジトリをクローン（ここは外部コマンド git なので共通）<\n>git clone https://github.com /tmp/tree-sitter-nu<\n><\n># 3. ディレクトリ作成 (Nushellでは -p は不要です)<\n>mkdir ~/.config/helix/runtime/queries/nu<\n><\n># 4. クエリファイルを一括コピー<\n># (ディレクトリ内のすべての .scm ファイルを指定)<\n>cp /tmp/tree-sitter-nu/queries/nu/*.scm ~/.config/helix/runtime/queries/nu/<\n><\n># 5. 中身の確認<\n>ls ~/.config/helix/runtime/queries/nu/<\n>
+yazi
+hx -g fetch<\n>hx -g build
+hx --health nu<\n>
+hx /home/roe/.config/nushell
+hx -h nu
+hx --health nu<\n>
+hx /home/roe/.config/nushell/
+echo $XDG_SESSION_TYPE<\n># x11 と出れば以下の方法が使えます（wayland だと別手段が必要）<\n>
+echo $env.XDG_SESSION_TYPE
+xev<\n>
+hx ~/.Xmodmap<\n>
+xmodmap ~/.Xmodmap<\n>
+あa
+hx /home/roe/.config/helix
+hx /home/roe/.config/Alacritty
+zoxide ~
+zoxide --help 
+zoxide add ~
+zoxide ~
+cargo binstall zoxide
+zoxide 
+zoxide helix
+z ~
+zi ~
+zoxide init nushell | save -f ~/.zoxide.nu<\n>
+zi ~
+zi helix
+z .config/nushell/
+z ~
+z nushell
+z ~
+z alacritty
+z .config/alacritty/
+hx
+zed 
+zed ./alacritty.toml
+zed /home/roe/.config/helix/
+yazi
+yz
+yazi --help
+hx /home/roe/.config/yazi
+hx --health nu<\n>
+nix profile add nixpkgs#feh --extra-experimental-features "nix-command flakes"<\n>
+feh
+feh "ピクチャ/Screenshot 2026-01-12 at 12-02-33 Sidebery _ Styles Editor.png" 
+hx e 
+yazi --help
+yazi
+cargo binstall yazi-plugin-manager
+∙ cargo binstall yazi-plugin-manager
+cargo binstall yazi-plugin-manager
+hx ~/.config/yazi/
+hx (fzf ~)
+fzf
+yazi --help
+hx (yazi --chooser-file)
+hx (yazi --chooser-file ~)
+bat about_helix.md 
+hx-search-file 
+hx-search-file Desktop/
+hx-search-file ~
+hx-search-file .
+]
+hx-search-file .
+hx .config/
+hx-search-file .cofig/
+fd .
+z alacritty
+fd
+hx-search-file .cofig/
+zi .config
+zi ~
+z ~
+z alacritty
+z .config
+z ..~
+z ./
+z ../
+hx-search-file .cofig/
+hx-search-file .config/
+hx-search-file
+hx /home/roe/.config/nushell/
+which nu
+which nufmt
+nix-env -iA nixpkgs.nufmt
+cargo binstall nufmt
+nix-env -iA nixpkgs.nufmt
+nix profile install nixpkgs#nufmt
+nix profile add  nixpkgs#nufmt
+nix profile add nixpkgs#nufmt \<\n>  --extra-experimental-features nix-command
+nix profile add nixpkgs#nufmt --extra-experimental-features nix-command
+~<\n>❯ nix profile add nixpkgs#nufmt --extra-experimental-features nix-command<\n>error: experimental Nix feature 'flakes' is disabled; add '--extra-experimental-features flakes' to enable it<\n>
+nix profile add nixpkgs#nufmt --extra-experimental-features 'nix-command flakes'
+hx
+hx /home/roe/.config/nushell/
+clear
+hx-search-file 
+hx-search-file .config/
+hx-search-file alacritty
+hx-search-file about
+hx-search-file yazi
+fd .
+hx-search-file helix
+hx-search-file nushell
+zoxide 
+zoxide q alacrritty
+zoxide query alacritty
+rg --help
+hxsf languge
+hx-search-file nushell
+hxfd languege
+hxfd language
+hx /home/roe/.config/helix/
+hxz alacritty
+hxfd language
+hxfd
+hxfd . .
+hxz nushell
+jq
+nu
+hxfd nushell
+hxfd xzellij
+mkdir -p ~/.config/zellij/plugins<\n>curl -L \<\n>  https://github.com/dj95/zjstatus/releases/latest/download/zjstatus.wasm \<\n>  -o ~/.config/zellij/plugins/zjstatus.wasm
+^mkdir -p ~/.config/zellij/plugins<\n>^curl -L \<\n>  https://github.com/dj95/zjstatus/releases/latest/download/zjstatus.wasm \<\n>  -o ~/.config/zellij/plugins/zjstatus.wasm
+^mkdir -p ~/.config/zellij/plugins<\n>^curl -L https://github.com/dj95/zjstatus/releases/latest/download/zjstatus.wasm -o ~/.config/zellij/plugins/zjstatus.wasm
+^mkdir -p ~/.config/zellij/plugins<\n>^curl -L https://github.com/zellij-org/zellij/releases/latest/download/room.wasm -o ~/.config/zellij/plugins/room.wasm
+^curl -L https://github.com/zellij-org/zellij/releases/latest/download/harpoon.wasm -o ~/.config/zellij/plugins/harpoon.wasm
+fd zellij | fzf
+fd zellij
+z .config/zellij/
+z zellij
+fd .
+nix profile add nixpkgs#neovide --extra-experimental-features 'nix-command flakes'
+neovide
+python3 -c 'import ctypes; ctypes.CDLL("libX11.so.6").XkbLockModifiers(ctypes.CDLL("libX11.so.6").XOpenDisplay(None), 0x0100, 2, 0)'<\n>
+# xmodmapのロック修飾子を一旦クリアして再定義する（これでOFFになります）<\n>xmodmap -e "clear lock"<\n>
+hxfd xmod
+hxfd xmod ~
+xmodmap ~/.Xmodmap<\n>
+setxkbmap -option<\n>
+hxfd xmod ~
+xmodmap ~/.Xmodmap<\n>
+hxfd xmod ~
+xmodmap ~/.Xmodmap<\n>
+hxfd xmod ~
+xmodmap ~/.Xmodmap<\n>
+hxfd xmod ~
+z ~
+neovide
+starship preset pastel-powerline -o ~/.config/starship.toml
+z alacritty
+z alacritty.toml
+ls
+z ~
+cd ダウンロード/
+z~
+z ~
+z ダウンロード/
+hxz alacritty
+starship preset tokyo-night -o ~/.config/starship.toml
+hxz alacritty
+flatpak install flathub org.wezfurlong.wezterm<\n>
+starship preset catppuccin-powerline -o ~/.config/starship.toml
+setting
+^setting
+hxz alacritty
+flatpak run org.wezfurlong.wezterm<\n>
+# We use Alacritty's default Linux config directory as our storage location here.<\n>^mkdir -p ~/.config/alacritty/themes<\n>^git clone https://github.com/alacritty/alacritty-theme ~/.config/alacritty/themes
+hxz alacritty
+ls
+ls --all 
+hxz helix
+z /home/roe/.config/helix/
+z~
+z ~
+hxz helix
+zig
+z ダウンロード/
+mkdir test
+z test
+zig init
+nix profile add nixpkgs#zls --extra-experimental-features 'nix-command flakes'
+zig
+zig run
+zig
+zig run
+zig build 
+zig run
+zig run 
+zig -h
+zig run
+zig run main.zig
+z src/
+zig run main.zig
+zig run
+hx --health toml
+z helix
+z themes/
+hxz test
+z helix
+z theme
+hxz alacritty
+helix --health zig
+hx --health zig
+hxz test
+z .config/zellij/
+ls --all 
+z plugins/
+ls --all 
+z zellij
+z plu
+ls --all
+yazi
+z zel
+zellij
+a
+hxz ala
+zellij kill-session alac
+hxz ala
+hxz ze
+hxz zell
+z plugi
+git get https://github.com/dj95/zjstatus/releases/latest/download/zjstatus.wasm
+htop
+curl https://github.com/dj95/zjstatus/releases/latest/download/zjstatus.wasm
+z plugi
+curl -LO https://github.com/dj95/zjstatus/releases/latest/download/zjstatus.wasm
+hxz zell
+hxz alaa
+zellij kill-session alac
+hxz ala
+zellij kill-session all
+zellij kill-session --all
+zellij kill-session --help
+zellij kill-session 
+zellij kill-session alac-9ee231
+nix profile add nixpkgs#btop --extra-experimental-features 'nix-command flakes'
+zellij kill-session alac
+zellij kill-session alacr
+yazi
+hxz ze
+btop
+hxz ala
+zellij
+zellij --help
+zellij kill-all-session
+zellij a ala
+zellij a alac
+zellij kill-all-session
+zellij --help
+zellij list-session | lists
+zellij list-session | list
+zellij list-session
+zellij list-sessions
+zellij delect-all-sessions
+zellij delete-all-sessions
+zellij kill-all-session
+zellij delete-all-sessions
+hxz ala
+zellij delete-all-sessions
+zellij list-sessions
+hxz ala
+zellij delete-all-sessions
+zellij kill-all-session
+zellij kill-all-sessions
+zellij delete-all-sessions
+zellij kill-all-sessions
+zellij delete-all-sessions
+zellij kill-all-sessions
+zellij
+zellij delete-all-sessions
+hxz heli
+zellij delete-all-sessions
+zellij kill-session default
+zellij delete-all-sessions
+zellij kill-session default
+hxz zell
+kitty kill-all-sesssions
+zellij kill-session default
+zellij delete-all-sessions
+hxz zell
+hxz test
+hxz al
+zellij delete-all-sessions
+zellij kill-all-sessions
+zellij delete-all-sessions
+zellij kill-all-sessions
+zellij delete-all-sessions
+hxz zell
+zellij kill-all-sessions
+zellij delete-all-sessions
+hxz zell
+hxz ala
+ls --all
+yazi
+helix
+hx
+yazi
+hxz ala
+hxz zell
+hxz test
+z .config/wezterm/
+hxz wez
+hxz al
+hxz wez
+hxz
+yazi
+hxz wez
+yazi
+zellij delete-all-sessions
+zellij
+z .config/yazi/
+nix profile add nixpkgs#chafa --extra-experimental-features 'nix-command flakes'
+yazi
+chafa -v
+chafa --version
+y
+yazi --clear-cache
+chafa `ダウンロード/Photos-3-001/Screenshot 2025-03-06 at 1.05.28.png`
+<\n>
+# 記号の種類を限定し、色を強制して表示<\n>chafa --symbols solid+space --color-space din99d `ダウンロード/Photos-3-001/Screenshot 2025-03-06 at 1.05.28.png`<\n>
+chafa `ダウンロード/Photos-3-001/Screenshot 2025-03-06 at 1.05.28.png`
+chafa --color 16 --simbols solid+space ダウンロード/Photos-3-001/Screenshot 2025-03-06 at 1.05.28.png
+chafa --help
+chafa `ダウンロード/Photos-3-001/Screenshot 2025-03-06 at 1.05.28.png`
+zellij kill-all-sessions
+zellij delete-all-sessions
+chafa `ダウンロード/Photos-3-001/Screenshot 2025-03-06 at 1.05.28.png`
+hxz ala
+chafa `ダウンロード/Photos-3-001/Screenshot 2025-03-06 at 1.05.28.png`
+hxz ala
+yazi --debug
+hxz yazi
+chafa --format symbols  `ダウンロード/Photos-3-001/Screenshot 2025-03-06 at 1.05.28.png`
+chafa -f symbols  `ダウンロード/Photos-3-001/Screenshot 2025-03-06 at 1.05.28.png`
+which chafa
+hxz yazi
+yazi --debug
+hxz nuu
+yazi
+yazi --debug
+hxz nu
+yazi --debug
+yazi
+yazi --debug
+TERM=xterm-kitty DISPLAY="" XDG_SESSION_TYPE="" yazi --debug | grep "Adapter"<\n># → Adapter.matches: Chafa  が出ればOK
+nix profile install nixpkgs#chafa
+chafa --version
+zellij kill-all-sessions
+zellij delete-all-sessions
+yazi
+yazi --debug | ripgrep "Adapter"
+yazi --debug | rg "Adapter"
+hxz nuu
+hxz ni
+neofetch
+nix profile install nixpkgs#neofetch
+helix --v
+helix -v
+hx -v
+hx -V 
+nix profile add nixpkgs#neofetch --extra-experimental-features 'nix-command flakes'
+neofetch
+hxz nu
+zellij kill-all-sessions
+zellij delete-all-sessions
+yazi
+chafa --format symbols  `ダウンロード/Photos-3-001/Screenshot 2025-03-06 at 1.05.28.png`
+hxz ala
+hxz zell
+hxz helix
+hxz about_helix.md
+hx about_helix.md 
+hxz ala
+hxz zel
+zellij
+hxz a
+hxz tet
+hxz te
+riti
+btop
+lazygit
+lazygit --help
+lazygit https://github.com/roe680/my-setting.git
+z /home/roe/.config/atuin/
+hxz atui

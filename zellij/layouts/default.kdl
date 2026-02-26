@@ -1,0 +1,59 @@
+layout {
+    default_tab_template {
+        // ── 上バー: session + tabs ──
+        pane size=1 borderless=true {
+            plugin location="file:/home/roe/.config/zellij/plugins/zjstatus.wasm" {
+                format_left  "#[bg=#89B4FA,fg=#181825,bold] {session} #[bg=#181825]{tabs}"
+                format_space "#[bg=#181825]"
+
+                //  を常にボールド [bold] に設定
+                tab_normal              "#[fg=#6C7086,bg=#181825] {index} {name} {fullscreen_indicator}{sync_indicator}{floating_indicator} #[fg=#424554,bold]"
+                tab_active   "#[bg=#9399B2,fg=#181825,bold,italic] {index} {name} {fullscreen_indicator}{sync_indicator}{floating_indicator} #[fg=#9399B2,bg=#181825,bold]"
+                tab_fullscreen_indicator "□ "
+                tab_sync_indicator       "  "
+                tab_floating_indicator   "󰉈 "
+            }
+        }
+
+        children
+
+        // ── 下バー: mode hint + kubectx/ns + datetime ──
+        pane size=1 borderless=true {
+            plugin location="file:/home/roe/.config/zellij/plugins/zjstatus.wasm" {
+                format_left  "{mode}"
+                format_right "{command_kubectx}#[fg=#424554,bg=#181825]::{command_kubens}{datetime}"
+                format_space "#[bg=#181825]"
+
+                // ── モード設定 ──
+                mode_normal      "#[bg=#89B4FA,fg=#181825,bold] NORMAL #[bg=#181825,fg=#6C7086] ^p:pane ^t:tab ^n:resize ^s:scroll ^o:session ^b:tmux "
+                mode_locked      "#[bg=#FF5555,fg=#181825,bold] LOCKED #[bg=#181825,fg=#6C7086] ^g:unlock "
+                
+                mode_resize      "#[bg=#89B4FA,fg=#181825,bold] RESIZE #[bg=#181825,fg=#89B4FA] hjkl:+ HJKL:- =/+:↑ -:↓ "
+                mode_pane        "#[bg=#89B4FA,fg=#181825,bold] PANE   #[bg=#181825,fg=#89B4FA] hjkl:focus n:new d:↓ r:→ x:close f:full w:float e:embed c:rename "
+                mode_tab         "#[bg=#89B4FA,fg=#181825,bold] TAB    #[bg=#181825,fg=#89B4FA] h/l:prev/next n:new x:close r:rename 1-9:goto s:sync "
+                mode_scroll      "#[bg=#89B4FA,fg=#181825,bold] SCROLL #[bg=#181825,fg=#89B4FA] jk:scroll ^f/^b:page d/u:half s:search e:edit "
+                mode_enter_search "#[bg=#89B4FA,fg=#181825,bold] SEARCH #[bg=#181825,fg=#89B4FA] Enter:search Esc:cancel "
+                mode_search      "#[bg=#89B4FA,fg=#181825,bold] SEARCH #[bg=#181825,fg=#89B4FA] n:↓ p:↑ c:case w:wrap o:word "
+                mode_rename_tab  "#[bg=#89B4FA,fg=#181825,bold] RENAME TAB  #[bg=#181825,fg=#89B4FA] Enter:confirm Esc:cancel "
+                mode_rename_pane "#[bg=#89B4FA,fg=#181825,bold] RENAME PANE #[bg=#181825,fg=#89B4FA] Enter:confirm Esc:cancel "
+                mode_session     "#[bg=#89B4FA,fg=#181825,bold] SESSION #[bg=#181825,fg=#89B4FA] d:detach w:manager c:config p:plugins "
+                mode_move        "#[bg=#89B4FA,fg=#181825,bold] MOVE   #[bg=#181825,fg=#89B4FA] hjkl:move n/Tab:next p:prev "
+                mode_prompt      "#[bg=#89B4FA,fg=#181825,bold] PROMPT #[bg=#181825,fg=#89B4FA] "
+                mode_tmux        "#[bg=#ffc387,fg=#181825,bold] TMUX   #[bg=#181825,fg=#89B4FA] c:new-tab p/n:tab \"/%%:split z:full ,:rename hjkl:focus x:close d:detach "
+
+                mode_default_to_mode "tmux"
+
+                command_kubectx_command  "kubectx -c"
+                command_kubectx_format   "#[fg=#6C7086,bg=#181825,italic] {stdout}"
+                command_kubectx_interval "2"
+                command_kubens_command   "kubens -c"
+                command_kubens_format    "#[fg=#6C7086,bg=#181825]{stdout} "
+                command_kubens_interval  "2"
+
+                datetime          "#[fg=#9399B2,bg=#181825] {format} "
+                datetime_format   "%A, %d %b %Y %H:%M"
+                datetime_timezone "Asia/Tokyo"
+            }
+        }
+    }
+}

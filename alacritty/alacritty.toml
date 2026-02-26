@@ -1,0 +1,38 @@
+[window]
+# 修正点1: opicity -> opacity (タイポの修正)
+[font]
+size = 9.0
+[font.normal]
+family = "Hack Nerd Font"
+style = "Regular"
+[terminal.shell]
+program = "nu"
+args = [
+    "-c",
+    """
+    
+    # 2. 現在の Alacritty の数を確認
+    let c = (ps | where name =~ 'alacritty' | length);
+    
+    # 3. 条件分岐して Zellij を『起動』ではなく『プロセス置換(exec)』する
+    if $c > 1 {
+        exec zellij
+    } else {
+        exec zellij attach --create 'default'
+    }
+    """
+]
+
+[scrolling]
+# スクロールバック履歴を Zellij に任せる設定
+history = 0
+
+# 修正点2: [shell] -> [terminal.shell] (非推奨項目の修正)
+[[keyboard.bindings]]
+# 拡大: Ctrl + ; (プラス記号の場所)
+key = "Semicolon"
+mods = "Control"
+action = "IncreaseFontSize"
+
+[colors.primary]
+background = '#000109' # Replace with your preferred hex code

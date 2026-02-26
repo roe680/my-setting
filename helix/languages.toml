@@ -1,0 +1,86 @@
+# =============================================================================
+# 1. Language Server (LSP) の定義
+# =============================================================================
+
+[language-server.rust-analyzer]
+command = "rust-analyzer"
+
+[language-server.zls]
+command = "zls"
+
+[language-server.nu-lsp]
+command = "nu"
+args = ["--lsp"]
+
+[language-server.wgsl-analyzer]
+command = "wgsl_analyzer"
+
+[language-server.slint-lsp]
+command = "slint-lsp"
+
+[language-server.harper-ls]
+command = "harper-ls"
+args = ["--stdio"]
+
+
+[language-server.taplo]
+command = "taplo"
+args = ["lsp", "stdio"]
+# =============================================================================
+# 2. 各言語の設定
+# =============================================================================
+
+# Rust
+[[language]]
+name = "rust"
+auto-format = true
+# 外部コマンドでのフォーマットが必要な場合は有効化（通常LSPが担当します）
+# formatter = { command = "rustfmt" }
+language-servers = ["rust-analyzer"]
+
+# Zig
+[[language]]
+name = "zig"
+auto-format = true
+language-servers = ["zls"]
+
+# Nushell
+[[language]]
+name = "nu"
+formatter = { command = "nufmt", args = ["--stdin"] }
+language-servers = ["nu-lsp"]
+
+# WGSL
+[[language]]
+name = "wgsl"
+auto-format = true
+language-servers = ["wgsl-analyzer"]
+
+# Slint
+[[language]]
+name = "slint"
+auto-format = true
+language-servers = ["slint-lsp"]
+
+# Markdown
+[[language]]
+name = "markdown"
+auto-format = true
+language-servers = ["harper-ls"]
+# ~/.config/helix/languages.toml
+
+[[language]]
+name = "toml"
+language-servers = ["taplo"]
+auto-format = true
+
+
+
+
+# =============================================================================
+# 3. 各言語のtree-sitterの設定
+# =============================================================================
+
+[[grammar]]
+name = "nu"
+source = { git = "https://github.com/nushell/tree-sitter-nu", rev = "main" }
