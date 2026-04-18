@@ -1,0 +1,187 @@
+{
+  "which_key": {
+    "enabled": true,
+    "delay_ms": 0,
+  },
+  "inlay_hints": {
+    "enabled": true,
+    "show_type_hints": true,
+    "show_parameter_hints": true,
+    "show_other_hints": true,
+  },
+  "relative_line_numbers": "enabled",
+  // --------------------------------------------------
+  // Editing modes
+  // --------------------------------------------------
+  "outline_panel": {
+    "dock": "right",
+  },
+  "helix_mode": true,
+  "vim_mode": false,
+  "base_keymap": "VSCode",
+
+  // --------------------------------------------------
+  // Fonts
+  // --------------------------------------------------
+  "buffer_font_family": "Apple Braille",
+  "buffer_font_size": 13,
+  "ui_font_size": 14,
+
+  // --------------------------------------------------
+  // UI
+  // --------------------------------------------------
+  "unstable.ui_density": "compact",
+  "icon_theme": "Seti Icon Theme",
+
+  // --------------------------------------------------
+  // Theme
+  // --------------------------------------------------
+  "theme": {
+    "mode": "dark",
+    "dark": "Kaolin Valley Dark",
+    "light": "Gruvbox Light Hard",
+  },
+
+  // --------------------------------------------------
+  // Autosave
+  // --------------------------------------------------
+  "autosave": "on_focus_change",
+
+  // --------------------------------------------------
+  // Search
+  // --------------------------------------------------
+  "search": {
+    "include_ignored": false,
+    "center_on_match": true,
+  },
+
+  "search_wrap": true,
+  "seed_search_query_from_cursor": "always",
+
+  // --------------------------------------------------
+  // File finder (space + f)
+  // --------------------------------------------------
+  "file_finder": {
+    "modal_max_width": "large",
+  },
+
+  // --------------------------------------------------
+  // File scanning
+  // --------------------------------------------------
+  "file_scan_exclusions": [
+    "**/.git",
+    "**/.svn",
+    "**/.hg",
+    "**/.jj",
+    "**/CVS",
+    "**/.DS_Store",
+    "**/Thumbs.db",
+    "**/node_modules",
+    "**/dist",
+    "**/target",
+  ],
+
+  "file_scan_inclusions": ["**/*"],
+
+  // --------------------------------------------------
+  // Project panel
+  // --------------------------------------------------
+  "project_panel": {
+    "auto_fold_dirs": false,
+    "auto_reveal_entries": true,
+    "dock": "right",
+  },
+
+  // --------------------------------------------------
+  // Tabs
+  // --------------------------------------------------
+  "preview_tabs": {
+    "enabled": false,
+  },
+
+  // --------------------------------------------------
+  // Git
+  // --------------------------------------------------
+  "git_panel": {
+    "dock": "right",
+  },
+
+  // --------------------------------------------------
+  // Pane visibility
+  // --------------------------------------------------
+  "active_pane_modifiers": {
+    "inactive_opacity": 0.85,
+  },
+
+  // --------------------------------------------------
+  // AI editing
+  // --------------------------------------------------
+  "edit_predictions": {
+    "provider": "copilot",
+  },
+
+  // --------------------------------------------------
+  // Agent
+  // --------------------------------------------------
+  "agent": {
+    "dock": "left",
+    "default_profile": "write",
+
+    "default_model": {
+      "provider": "copilot_chat",
+      "model": "gpt-5.3-codex",
+    },
+
+    "inline_assistant_model": {
+      "provider": "copilot_chat",
+      "model": "claude-haiku-4.5",
+    },
+
+    "favorite_models": [
+      {
+        "provider": "copilot_chat",
+        "model": "claude-haiku-4.5",
+        "enable_thinking": false,
+      },
+    ],
+
+    "tool_permissions": {
+      "default": "allow",
+    },
+  },
+
+  // --------------------------------------------------
+  // MCP context servers
+  // --------------------------------------------------
+  "context_servers": {
+    "mcp-server-brave-search": {
+      "enabled": true,
+      "settings": {
+        "brave_api_key": "YOUR_API_KEY",
+      },
+    },
+
+    "mcp-server-github": {
+      "enabled": true,
+      "settings": {
+        "github_personal_access_token": "GITHUB_PERSONAL_ACCESS_TOKEN",
+      },
+    },
+
+    "mcp-server-context7": {
+      "enabled": true,
+      "settings": {
+        "default_minimum_tokens": "10000",
+      },
+    },
+  },
+  // --------------------------------------------------
+  // Language specific
+  // --------------------------------------------------
+  "languages": {
+    "Rust": {
+      "format_on_save": "on",
+      "preferred_line_length": 100,
+    },
+  },
+}
